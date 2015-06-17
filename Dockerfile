@@ -1,11 +1,9 @@
-# Minecraft 1.8.7 Dockerfile - Example with notes
+# Minecraft Dockerfile
 
+# Base system is the LTS version of Ubuntu
+FROM ubuntu:14.04
 
-# Use the offical Debian Docker image with a specified version tag, Wheezy, so not all
-# versions of Debian images are downloaded.
-FROM debian:wheezy
-
-MAINTAINER Michael Chiang <mchiang@docker.com>
+MAINTAINER Asgaut Eng <asgaut@gmail.com>
 
 # Use APT (Advanced Packaging Tool) built in the Linux distro to download Java, a dependency
 # to run Minecraft.
@@ -23,5 +21,5 @@ VOLUME /data
 # Expose the container's network port: 25565 during runtime.
 EXPOSE 25565
 
-#Automatically accept Minecraft EULA, and start Minecraft server
+# Default command to run. Accept Minecraft EULA, and start Minecraft server.
 CMD echo eula=true > /data/eula.txt && java -jar /minecraft_server.1.8.7.jar
