@@ -1,14 +1,14 @@
 # Minecraft server in a docker container
 
-To use with Ubuntu server 14.04 LTS
+Tested on Ubuntu server 14.04.2 LTS
 
 Install docker:
 
     sudo apt-get update ; sudo apt-get install lxc-docker
 
 ## Building the docker image
-    git clone https://github.com/asgaut/minecraft
-    cd minecraft
+    git clone https://github.com/asgaut/docker-minecraft
+    cd docker-minecraft
     sudo docker build -t minecraft-image .
 
 ## Running in container
