@@ -27,4 +27,11 @@ Exit interactive mode (and server process) with "/stop".
 
 Run as daemon and auto-start on boot and attempt restart 10 times if process stops:
 
-    sudo docker run --restart=on-failure:10 -d=true -p=25565:25565/tcp -v="/mnt/minecraft:/data" minecraft-image
+    sudo docker run --restart=on-failure:10 -d=true -p=25565:25565/tcp -v="/mnt/minecraft:/data" --name=my-mc-container minecraft-image
+
+## Upgrading existing container to run a new image version
+Ref. this answer: http://stackoverflow.com/a/26833005
+
+    docker stop my-mc-container
+    docker rm my-mc-container
+    sudo docker run --restart=on-failure:10 -d=true -p=25565:25565/tcp -v="/mnt/minecraft:/data" --name=my-mc-container minecraft-image
